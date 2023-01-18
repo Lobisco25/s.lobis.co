@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+	background-color: #101010;
+	color: #fff;
+	font-family: "Inter", sans-serif;
+	text-align: center;
+}
+
+input {
+	background-color: #141414;
+	color: #fff;
+	border: 2px solid #dadada;
+	border-radius: 4px;
+    transition: all 0.1s ease;
+}
+
+input:hover {
+	outline: none;
+	border-color: #c7c7c7;
+	box-shadow: 0 0 4px #c7c7c7;
+}
+
+input:focus {
+	outline: none;
+	border-color: #fff;
+	box-shadow: 0 0 4px #fff;
+}
+
+button {
+    background-color: #141414;
+    color: #fff;
+    border: 2px solid #dadada;
+    border-radius: 4px;
+    transition: all 0.1s ease;
+}
+
+button:hover {
+    outline: none;
+    border-color: #c7c7c7;
+    box-shadow: 0 0 4px #c7c7c7;
+}
+
+button:focus {
+    outline: none;
+    border-color: #fff;
+    box-shadow: 0 0 4px #fff;
+}
+
+header h1 {
+	display: inline-block;
+}
