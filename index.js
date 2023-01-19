@@ -62,4 +62,4 @@ app.get("/:short", async (req, res) => {
     res.redirect(url[0].full)
 })
 
-app.listen(9003)
+app.listen(9001)
