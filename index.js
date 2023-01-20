@@ -21,9 +21,6 @@ app.use(express.static(public));
 
 app.use(express.urlencoded({ extended: false }));
 
-
-
-
 app.get('/', async (req, res) => {
     res.send(`
         <link rel="stylesheet" type="text/css" href="index.css"/>
@@ -35,16 +32,17 @@ app.get('/', async (req, res) => {
         </form>`);
 });
 
-
 app.post("/upload", async (req, res) => {
 
     if (!req.body.full) return res.sendStatus(400)
 
     const short = await shortids.generate();
 
+    console.log(short + " to " + req.body.full)
+
     if (!req.body.full.startsWith("http")) req.body.full = "http://" + req.body.full;
 
-    await db("urls").insert({ full: req.body.full, short: short });
+    await db("urls").insert({ full: req.body.full, short: short })
     res.send(`${config.domain}/${short}`)
 
 })
@@ -57,9 +55,11 @@ app.get("/:short", async (req, res) => {
 
     const url = await db("urls").where({ short: short }).select("full")
 
-    if (url.length == 0) return res.sendStatus(404)
+    if (!url.length) return
 
     res.redirect(url[0].full)
 })
 
-app.listen(9001)
+app.listen(9001, () => {
+    console.log("listening on 9001")
+})
